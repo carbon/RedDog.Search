@@ -1,27 +1,25 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
-namespace RedDog.Search.Model
+namespace RedDog.Search.Model;
+
+public class SuggestionResultRecord
 {
-    public class SuggestionResultRecord
+    public SuggestionResultRecord()
     {
-        public SuggestionResultRecord()
-        {
-            Properties = new Dictionary<string, object>();
-        }
-        
-        [JsonProperty("@search.text")]
-        public string Text
-        {
-            get;
-            set;
-        }
-        
-        [JsonExtensionData]
-        public Dictionary<string, object> Properties
-        {
-            get;
-            set;
-        }
+        Properties = new Dictionary<string, object>();
+    }
+    
+    [JsonPropertyName("@search.text")]
+    public string Text
+    {
+        get;
+        set;
+    }
+    
+    [JsonExtensionData]
+    public Dictionary<string, object> Properties
+    {
+        get;
+        set;
     }
 }

@@ -1,10 +1,13 @@
-﻿namespace RedDog.Search.Model
+﻿using RedDog.Search.Serialization;
+using System.Text.Json.Serialization;
+
+namespace RedDog.Search.Model;
+
+[JsonConverter(typeof(CamelCaseEnumJsonConverter<ScoringProfileFunctionType>))]
+public enum ScoringProfileFunctionType
 {
-    public enum ScoringProfileFunctionType
-    {
-        Magnitude,
-        Freshness,
-        Distance,
-        Tag
-    }
+    Magnitude,
+    Freshness,
+    Distance,
+    Tag
 }

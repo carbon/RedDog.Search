@@ -1,9 +1,11 @@
-﻿using System;
+﻿using System.Text.Json.Serialization;
 
-namespace RedDog.Search.Model
+using RedDog.Search.Serialization;
+
+namespace RedDog.Search.Model;
+
+[JsonConverter(typeof(CamelCaseEnumJsonConverter<SuggesterSearchMode>))]
+public enum SuggesterSearchMode
 {
-    public enum SuggesterSearchMode
-    {
-        AnalyzingInfixMatching
-    }
+    AnalyzingInfixMatching
 }

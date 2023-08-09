@@ -1,65 +1,30 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+﻿using System.Text.Json.Serialization;
 
-namespace RedDog.Search.Model
+namespace RedDog.Search.Model;
+
+public class ScoringProfileFunction
 {
-    public class ScoringProfileFunction
-    {
-        [JsonProperty("type")]
+    [JsonPropertyName("type")]
+    public ScoringProfileFunctionType Type { get; set; }
 
-        public ScoringProfileFunctionType Type
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("boost")]
+    public double Boost { get; set; }
 
-        [JsonProperty("boost")]
-        public double Boost
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("fieldName")]
+    public string FieldName { get; set; }
 
-        [JsonProperty("fieldName")]
-        public string FieldName
-        {
-            get;
-            set;
-        }
-        [JsonProperty("interpolation")]
+    [JsonPropertyName("interpolation")]
+    public InterpolationType Interpolation { get; set; }
 
-        public InterpolationType Interpolation
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("magnitude")]
+    public ScoringProfileFunctionMagnitude? Magnitude { get; set; }
 
-        [JsonProperty("magnitude")]
-        public ScoringProfileFunctionMagnitude Magnitude
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("freshness")]
+    public ScoringProfileFunctionFreshness? Freshness { get; set; }
 
-        [JsonProperty("freshness")]
-        public ScoringProfileFunctionFreshness Freshness
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("distance")]
+    public ScoringProfileFunctionDistance? Distance { get; set; }
 
-        [JsonProperty("distance")]
-        public ScoringProfileFunctionDistance Distance
-        {
-            get;
-            set;
-        }
-
-        [JsonProperty("tag")]
-        public ScoringProfileFunctionTag Tag
-        {
-            get;
-            set;
-        }
-    }
+    [JsonPropertyName("tag")]
+    public ScoringProfileFunctionTag? Tag { get; set; }
 }

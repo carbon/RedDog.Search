@@ -1,10 +1,13 @@
-﻿namespace RedDog.Search.Model
+﻿using RedDog.Search.Serialization;
+using System.Text.Json.Serialization;
+
+namespace RedDog.Search.Model;
+
+[JsonConverter(typeof(CamelCaseEnumJsonConverter<IndexOperationType>))]
+public enum IndexOperationType
 {
-    public enum IndexOperationType
-    {
-        Upload,
-        Merge,
-        MergeOrUpload,
-        Delete
-    }
+    Upload,
+    Merge,
+    MergeOrUpload,
+    Delete
 }

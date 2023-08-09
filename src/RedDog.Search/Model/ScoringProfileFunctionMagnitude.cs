@@ -1,24 +1,24 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace RedDog.Search.Model
 {
     public class ScoringProfileFunctionMagnitude
     {
-        [JsonProperty("boostingRangeStart")]
+        [JsonPropertyName("boostingRangeStart")]
         public double BoostingRangeStart
         {
             get;
             set;
         }
 
-        [JsonProperty("boostingRangeEnd")]
+        [JsonPropertyName("boostingRangeEnd")]
         public double BoostingRangeEnd
         {
             get;
             set;
         }
 
-        [JsonProperty("constantBoostBeyondRange")]
+        [JsonPropertyName("constantBoostBeyondRange")]
         public bool ConstantBoostBeyondRange
         {
             get;

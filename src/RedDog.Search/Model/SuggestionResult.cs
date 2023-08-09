@@ -1,22 +1,20 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
-namespace RedDog.Search.Model
-{
-    public class SuggestionResult
-    {  
-        [JsonProperty("value")]
-        public IEnumerable<SuggestionResultRecord> Records
-        {
-            get;
-            set;
-        }
+namespace RedDog.Search.Model;
 
-        [JsonProperty("@odata.context")]
-        public string Context
-        {
-            get;
-            set;
-        }        
+public class SuggestionResult
+{  
+    [JsonPropertyName("value")]
+    public IEnumerable<SuggestionResultRecord> Records
+    {
+        get;
+        set;
     }
+
+    [JsonPropertyName("@odata.context")]
+    public string Context
+    {
+        get;
+        set;
+    }        
 }

@@ -1,61 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
+﻿using System.Net.Http;
 
-namespace RedDog.Search.Http
+namespace RedDog.Search.Http;
+
+public class ApiRequest(string uri, HttpMethod method, object? body = null) : IApiRequest
 {
-    public class ApiRequest : IApiRequest
+    public string Uri { get; } = uri;
+
+    public HttpMethod Method { get; } = method;
+
+    public List<Tuple<string, string>> QueryParameters { get; set; } = new List<Tuple<string, string>>();
+
+    public object? Body { get; set; } = body;
+
+    public void AddQueryParameter(string key, string value)
     {
-        public ApiRequest(string uri, HttpMethod method, object body = null)
-        {
-            Uri = uri;
-            Method = method;
-            Body = body;
-            UriParameters = new List<string>();
-            QueryParameters = new List<Tuple<string, string>>();
-        }
+        QueryParameters.Add(new Tuple<string, string>(key, value));
+    }
 
-        public string Uri
+    public void AddQueryParameter(string key, IEnumerable<string> values)
+    {
+        foreach (var value in values)
         {
-            get;
-            set;
-        }
-
-        public List<string> UriParameters
-        {
-            get;
-            set;
-        }
-
-        public HttpMethod Method
-        {
-            get;
-            set;
-        }
-
-        public List<Tuple<string, string>> QueryParameters
-        {
-            get;
-            set;
-        }
-
-        public object Body
-        {
-            get;
-            set;
-        }
-
-        public void AddQueryParameter(string key, string value)
-        {
-            QueryParameters.Add(new Tuple<string, string>(key, value));
-        }
-
-        public void AddQueryParameter(string key, IEnumerable<string> values)
-        {
-            foreach (var value in values)
-            {
-                QueryParameters.Add(new Tuple<string, string>(key, value)); 
-            }           
-        }
+            QueryParameters.Add(new Tuple<string, string>(key, value)); 
+        }           
     }
 }

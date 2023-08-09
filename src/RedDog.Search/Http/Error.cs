@@ -1,35 +1,17 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
-namespace RedDog.Search.Http
+namespace RedDog.Search.Http;
+
+public class Error
 {
-    public class Error
-    {
-        [JsonProperty("code")]
-        public string Code
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("code")]
+    public string Code { get; set; }
 
-        [JsonProperty("message")]
-        public string Message
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("message")]
+    public string Message { get; set; }
 
-        [JsonProperty("innererror")]
-        public InnerError InnerError
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("innererror")]
+    public InnerError InnerError { get; set; }
 
-        public Dictionary<string, List<string>> ModelState
-        {
-            get;
-            set;
-        }
-    }
+    public Dictionary<string, List<string>> ModelState { get; set; }
 }

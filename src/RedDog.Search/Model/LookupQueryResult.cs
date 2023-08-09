@@ -1,20 +1,18 @@
-using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
-namespace RedDog.Search.Model
+namespace RedDog.Search.Model;
+
+public class LookupQueryResult
 {
-    public class LookupQueryResult
+    public LookupQueryResult()
     {
-        public LookupQueryResult()
-        {
-            Properties = new Dictionary<string, object>();
-        }
+        Properties = new Dictionary<string, object>();
+    }
 
-        [JsonExtensionData]
-        public Dictionary<string, object> Properties
-        {
-            get;
-            set;
-        }
+    [JsonExtensionData]
+    public Dictionary<string, object> Properties
+    {
+        get;
+        set;
     }
 }

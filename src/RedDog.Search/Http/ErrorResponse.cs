@@ -1,11 +1,6 @@
-﻿namespace RedDog.Search.Http
+﻿namespace RedDog.Search.Http;
+
+public class ErrorResponse
 {
-    public class ErrorResponse
-    {
-        public Error Error
-        {
-            get;
-            set;
-        }
-    }
+    public Error Error { get; set; }
 }

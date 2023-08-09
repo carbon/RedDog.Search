@@ -1,30 +1,17 @@
 ﻿using System.Net;
 
-namespace RedDog.Search.Http
+namespace RedDog.Search.Http;
+
+public interface IApiResponse<out TResult> : IApiResponse
 {
-    public interface IApiResponse<out TResult> : IApiResponse
-    {
-        TResult Body
-        {
-            get;
-        }
-    }
+    TResult Body { get; }
+}
 
-    public interface IApiResponse
-    {
-        Error Error
-        {
-            get;
-        }
+public interface IApiResponse
+{
+    Error? Error { get; }
 
-        bool IsSuccess
-        {
-            get;
-        }
+    bool IsSuccess { get; }
 
-        HttpStatusCode StatusCode
-        {
-            get;
-        }
-    }
+    HttpStatusCode StatusCode { get; }
 }

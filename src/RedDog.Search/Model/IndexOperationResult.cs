@@ -1,28 +1,15 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
-namespace RedDog.Search.Model
+namespace RedDog.Search.Model;
+
+public sealed class IndexOperationResult
 {
-    public class IndexOperationResult
-    {
-        [JsonProperty(PropertyName = "key")]
-        public string Key
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("key")]
+    public string Key { get; set; }
 
-        [JsonProperty(PropertyName = "status")]
-        public bool Status
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("status")]
+    public bool Status { get; set; }
 
-        [JsonProperty(PropertyName = "errorMessage")]
-        public string ErrorMessage
-        {
-            get;
-            set;
-        }
-    }
+    [JsonPropertyName("errorMessage")]
+    public string? ErrorMessage { get; set; }
 }

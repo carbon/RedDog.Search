@@ -1,31 +1,31 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace RedDog.Search.Model
 {
     public class FacetResult
     {
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string Value
         {
             get;
             set;
         }
 
-        [JsonProperty("from")]
+        [JsonPropertyName("from")]
         public long From
         {
             get;
             set;
         }
 
-        [JsonProperty("to")]
+        [JsonPropertyName("to")]
         public long To
         {
             get;
             set;
         }
 
-        [JsonProperty("count")]
+        [JsonPropertyName("count")]
         public long Count
         {
             get;

@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace RedDog.Search.Model
 {
@@ -9,14 +9,14 @@ namespace RedDog.Search.Model
             AllowedOrigins = new[] {"*"};
         }
 
-        [JsonProperty("allowedOrigins")]
+        [JsonPropertyName("allowedOrigins")]
         public string[] AllowedOrigins
         {
             get;
             set;
         }
 
-        [JsonProperty("maxAgeInSeconds")]
+        [JsonPropertyName("maxAgeInSeconds")]
         public long MaxAgeInSeconds
         {
             get;

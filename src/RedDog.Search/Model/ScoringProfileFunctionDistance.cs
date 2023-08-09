@@ -1,17 +1,17 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace RedDog.Search.Model
 {
     public class ScoringProfileFunctionDistance
     {
-        [JsonProperty("referencePointParameter")]
+        [JsonPropertyName("referencePointParameter")]
         public string ReferencePointParameter
         {
             get;
             set;
         }
 
-        [JsonProperty("boostingDistance")]
+        [JsonPropertyName("boostingDistance")]
         public double BoostingDistance
         {
             get;
@@ -21,7 +21,7 @@ namespace RedDog.Search.Model
     
     public class ScoringProfileFunctionTag
     {
-        [JsonProperty("tagsParameter")]
+        [JsonPropertyName("tagsParameter")]
         public string TagsParameter
         {
             get;

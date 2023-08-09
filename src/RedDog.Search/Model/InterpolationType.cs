@@ -1,20 +1,14 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace RedDog.Search.Model
+using RedDog.Search.Serialization;
+
+namespace RedDog.Search.Model;
+
+[JsonConverter(typeof(CamelCaseEnumJsonConverter<InterpolationType>))]
+public enum InterpolationType
 {
-    [DataContract]
-    public enum InterpolationType
-    {
-        [EnumMember(Value = "linear")]
-        Linear = 0,
-
-        [EnumMember(Value = "constant")]
-        Constant = 1,
-
-        [EnumMember(Value = "quadratic")]
-        Quadratic = 2,
-
-        [EnumMember(Value = "logarithmic")]
-        Logarithmic = 3
-    }
+    Linear = 0,
+    Constant = 1,
+    Quadratic = 2,
+    Logarithmic = 3
 }

@@ -1,5 +1,3 @@
-using System;
-
 namespace RedDog.Search.Model
 {
     public static class LookupQueryExtensions

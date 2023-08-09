@@ -1,17 +1,17 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace RedDog.Search.Model
 {
     public class IndexStatistics
     {
-        [JsonProperty("documentCount")]
+        [JsonPropertyName("documentCount")]
         public long DocumentCount
         {
             get;
             set;
         }
 
-        [JsonProperty("storageSize")]
+        [JsonPropertyName("storageSize")]
         public long StorageSize
         {
             get;

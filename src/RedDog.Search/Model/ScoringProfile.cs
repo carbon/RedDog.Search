@@ -1,44 +1,23 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+﻿using System.Text.Json.Serialization;
 
-namespace RedDog.Search.Model
+namespace RedDog.Search.Model;
+
+public class ScoringProfile
 {
-    public class ScoringProfile
+    public ScoringProfile()
     {
-        public ScoringProfile()
-        {
-            Functions = new Collection<ScoringProfileFunction>();
-        }
-
-        [JsonProperty("name")]
-        public string Name
-        {
-            get;
-            set;
-        }
-
-        [JsonProperty("text")]
-        public ScoringProfileText Text
-        {
-            get;
-            set;
-        }
-
-        [JsonProperty("functions")]
-        public ICollection<ScoringProfileFunction> Functions
-        {
-            get;
-            set;
-        }
-
-        
-        [JsonProperty("functionAggregation")]
-        public FunctionAggregation? FunctionAggregation
-        {
-            get;
-            set;
-        }
+        Functions = new List<ScoringProfileFunction>();
     }
+
+    [JsonPropertyName("name")]
+    public string Name { get; set; }
+
+    [JsonPropertyName("text")]
+    public ScoringProfileText Text { get; set; }
+
+    [JsonPropertyName("functions")]
+    public List<ScoringProfileFunction> Functions { get; set; }
+
+    [JsonPropertyName("functionAggregation")]
+    public FunctionAggregation? FunctionAggregation { get; set; }
 }

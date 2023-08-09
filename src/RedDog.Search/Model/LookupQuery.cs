@@ -1,31 +1,21 @@
-using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
-namespace RedDog.Search.Model
+namespace RedDog.Search.Model;
+
+public class LookupQuery
 {
-    public class LookupQuery
+    public LookupQuery()
     {
-        public LookupQuery()
-        {
-        }
-
-        public LookupQuery(string key)
-        {
-            Key = key;
-        }
-
-        [JsonIgnore]
-        public String Key
-        {
-            get;
-            set;
-        }
-
-        [JsonProperty("select")]
-        public string Select
-        {
-            get;
-            set;
-        }
     }
+
+    public LookupQuery(string key)
+    {
+        Key = key;
+    }
+
+    [JsonIgnore]
+    public String Key { get; set; }
+
+    [JsonPropertyName("select")]
+    public string Select { get; set; }
 }

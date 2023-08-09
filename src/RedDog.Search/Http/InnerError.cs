@@ -1,28 +1,15 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
-namespace RedDog.Search.Http
+namespace RedDog.Search.Http;
+
+public class InnerError
 {
-    public class InnerError
-    {
-        [JsonProperty("message")]
-        public string Message
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("message")]
+    public string Message { get; set; }
 
-        [JsonProperty("stacktrace")]
-        public string Stacktrace
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("stacktrace")]
+    public string Stacktrace { get; set; }
 
-        [JsonProperty("type")]
-        public string Type
-        {
-            get;
-            set;
-        }
-    }
+    [JsonPropertyName("type")]
+    public string Type { get; set; }
 }

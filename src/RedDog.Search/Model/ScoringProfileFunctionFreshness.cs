@@ -1,16 +1,11 @@
-using System;
-using Newtonsoft.Json;
-using RedDog.Search.Http;
+using System.Text.Json.Serialization;
+using RedDog.Search.Serialization;
 
-namespace RedDog.Search.Model
+namespace RedDog.Search.Model;
+
+public class ScoringProfileFunctionFreshness
 {
-    public class ScoringProfileFunctionFreshness
-    {
-        [JsonProperty("boostingDuration")]
-        public TimeSpan BoostingDuration
-        {
-            get;
-            set;
-        }
-    }
+    [JsonPropertyName("boostingDuration")]
+    [JsonConverter(typeof(XsdDurationConverter))]
+    public TimeSpan BoostingDuration { get; set; }
 }

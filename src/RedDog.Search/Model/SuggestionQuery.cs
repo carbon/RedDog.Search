@@ -1,77 +1,75 @@
-using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
-namespace RedDog.Search.Model
+namespace RedDog.Search.Model;
+
+public class SuggestionQuery
 {
-    public class SuggestionQuery
+    public SuggestionQuery()
     {
-        public SuggestionQuery()
-        {
 
-        }
+    }
 
-        public SuggestionQuery(string search)
-        {
-            Search = search;
-        }
+    public SuggestionQuery(string search)
+    {
+        Search = search;
+    }
 
-        [JsonProperty("search")]
-        public String Search
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("search")]
+    public String Search
+    {
+        get;
+        set;
+    }
 
 
-        [JsonProperty("fuzzy")]
-        public bool Fuzzy
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("fuzzy")]
+    public bool Fuzzy
+    {
+        get;
+        set;
+    }
 
-        [JsonProperty("searchFields")]
-        public string SearchFields
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("searchFields")]
+    public string SearchFields
+    {
+        get;
+        set;
+    }
 
-        [JsonProperty("top")]
-        public long Top
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("top")]
+    public long Top
+    {
+        get;
+        set;
+    }
 
-        [JsonProperty("filter")]
-        public string Filter
-        {
-            get;
-            set;
-        }
-
-
-        [JsonProperty("orderBy")]
-        public string OrderBy
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("filter")]
+    public string Filter
+    {
+        get;
+        set;
+    }
 
 
-        [JsonProperty("select")]
-        public string Select
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("orderBy")]
+    public string OrderBy
+    {
+        get;
+        set;
+    }
 
-        [JsonProperty("suggesterName")]
-        public string SuggesterName
-        {
-            get;
-            set;
-        }
+
+    [JsonPropertyName("select")]
+    public string Select
+    {
+        get;
+        set;
+    }
+
+    [JsonPropertyName("suggesterName")]
+    public string SuggesterName
+    {
+        get;
+        set;
     }
 }

@@ -1,36 +1,34 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
-namespace RedDog.Search.Model
+namespace RedDog.Search.Model;
+
+public class SearchQueryResult
 {
-    public class SearchQueryResult
+    [JsonPropertyName("@odata.count")]
+    public int Count
     {
-        [JsonProperty("@odata.count")]
-        public int Count
-        {
-            get;
-            set;
-        }
+        get;
+        set;
+    }
 
-        [JsonProperty("@search.facets")]
-        public Dictionary<string, FacetResult[]> Facets
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("@search.facets")]
+    public Dictionary<string, FacetResult[]> Facets
+    {
+        get;
+        set;
+    }
 
-        [JsonProperty("value")]
-        public IEnumerable<SearchQueryRecord> Records
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("value")]
+    public IEnumerable<SearchQueryRecord> Records
+    {
+        get;
+        set;
+    }
 
-        [JsonProperty("@odata.nextLink")]
-        public string NextLink
-        {
-            get;
-            set;
-        }
+    [JsonPropertyName("@odata.nextLink")]
+    public string NextLink
+    {
+        get;
+        set;
     }
 }

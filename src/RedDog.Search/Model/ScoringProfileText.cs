@@ -1,22 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
-namespace RedDog.Search.Model
+namespace RedDog.Search.Model;
+
+public class ScoringProfileText
 {
-    [DataContract]
-    public class ScoringProfileText
+    public ScoringProfileText()
     {
-        public ScoringProfileText()
-        {
-            Weights = new Dictionary<string, double>();
-        }
-
-        [JsonProperty("weights")]
-        public IDictionary<string, double> Weights
-        {
-            get;
-            set;
-        }
+        Weights = new Dictionary<string, double>();
     }
+
+    [JsonPropertyName("weights")]
+    public IDictionary<string, double> Weights { get; set; }
 }

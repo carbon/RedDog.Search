@@ -1,44 +1,35 @@
-﻿using System;
-using System.Globalization;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
-namespace RedDog.Search.Model
+namespace RedDog.Search.Model;
+
+public static class PopulateOperationExtensions
 {
-    public static class PopulateOperationExtensions
+    public static IndexOperation WithProperty(this IndexOperation operation, string name, object value)
     {
-        public static IndexOperation WithProperty(this IndexOperation operation, string name, object value)
-        {
-            operation.Properties.Add(name, value);
-            return operation;
-        }
-
-        public static IndexOperation WithGeographyPoint(this IndexOperation operation, string name, double longitude, double latitude)
-        {
-            operation.Properties.Add(name, new GeoPointField(longitude, latitude));
-            return operation;
-        }
-
+        operation.Properties.Add(name, value);
+        return operation;
     }
-    internal class GeoPointField
+
+    public static IndexOperation WithGeographyPoint(this IndexOperation operation, string name, double longitude, double latitude)
     {
-        [JsonProperty(PropertyName =  "type")]
-        public string Type
-        {
-            get;
-            set;
-        }
+        operation.Properties.Add(name, new GeoPointField(longitude, latitude));
+        return operation;
+    }
 
-        [JsonProperty(PropertyName = "coordinates")]
-        public Double[] Coordinates
-        {
-            get;
-            set;
-        }
+}
+internal class GeoPointField
+{
+    [JsonPropertyName("type")]
+    public string Type { get; set; }
 
-        public GeoPointField(params double[] coordinates)
-        {
-            Type = "Point";
-            Coordinates = coordinates;
-        }
+    [JsonPropertyName("coordinates")]
+    public double[] Coordinates { get; set; }
+
+    public GeoPointField() { }
+
+    public GeoPointField(params double[] coordinates)
+    {
+        Type = "Point";
+        Coordinates = coordinates;
     }
 }
