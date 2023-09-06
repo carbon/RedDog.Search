@@ -15,61 +15,26 @@ public class SuggestionQuery
     }
 
     [JsonPropertyName("search")]
-    public String Search
-    {
-        get;
-        set;
-    }
-
+    public string Search { get; set; }
 
     [JsonPropertyName("fuzzy")]
-    public bool Fuzzy
-    {
-        get;
-        set;
-    }
+    public bool Fuzzy { get; set; }
 
     [JsonPropertyName("searchFields")]
-    public string SearchFields
-    {
-        get;
-        set;
-    }
+    public string SearchFields { get; set; }
 
     [JsonPropertyName("top")]
-    public long Top
-    {
-        get;
-        set;
-    }
+    public long Top { get; set; }
 
     [JsonPropertyName("filter")]
-    public string Filter
-    {
-        get;
-        set;
-    }
-
+    public string Filter { get; set; }
 
     [JsonPropertyName("orderBy")]
-    public string OrderBy
-    {
-        get;
-        set;
-    }
-
+    public string OrderBy { get; set; }
 
     [JsonPropertyName("select")]
-    public string Select
-    {
-        get;
-        set;
-    }
+    public string Select { get; set; }
 
     [JsonPropertyName("suggesterName")]
-    public string SuggesterName
-    {
-        get;
-        set;
-    }
+    public string SuggesterName { get; set; }
 }

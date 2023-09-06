@@ -19,24 +19,6 @@ public static class SearchQueryExtensions
         return query;
     }
 
-    public static SearchQuery Skip(this SearchQuery query, long skip)
-    {
-        query.Skip = skip;
-        return query;
-    }
-
-    public static SearchQuery Top(this SearchQuery query, long top)
-    {
-        query.Top = top;
-        return query;
-    }
-
-    public static SearchQuery Count(this SearchQuery query, bool useCount)
-    {
-        query.Count = useCount;
-        return query;
-    }
-
     public static SearchQuery OrderBy(this SearchQuery query, string orderByField)
     {
         if (String.IsNullOrEmpty(query.OrderBy))
@@ -64,12 +46,6 @@ public static class SearchQueryExtensions
         else
             query.Facets = query.Facets.Concat(fieldValue);
 
-        return query;
-    }
-
-    public static SearchQuery Filter(this SearchQuery query, string filter)
-    {
-        query.Filter = filter;
         return query;
     }
 
