@@ -2,12 +2,10 @@
 
   <PropertyGroup>
     <AssemblyName>RedDog.Search</AssemblyName>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Version>1.0.0</Version>
     <Nullable>enable</Nullable>
     <NoWarn>IDE0057</NoWarn>
-    <LangVersion>preview</LangVersion>
-
   </PropertyGroup>
 
 </Project>
