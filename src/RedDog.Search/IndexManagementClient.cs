@@ -6,14 +6,9 @@ using RedDog.Search.Model.Internal;
 
 namespace RedDog.Search;
 
-public class IndexManagementClient : IDisposable
+public class IndexManagementClient(ApiConnection connection) : IDisposable
 {
-    private ApiConnection _connection;
-
-    public IndexManagementClient(ApiConnection connection)
-    {
-        _connection = connection;
-    }
+    private ApiConnection _connection = connection;
 
     /// <summary>
     /// Create a new index.

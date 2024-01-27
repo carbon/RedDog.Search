@@ -7,14 +7,9 @@ using RedDog.Search.Model;
 
 namespace RedDog.Search;
 
-public class IndexQueryClient : IDisposable
+public class IndexQueryClient(ApiConnection connection) : IDisposable
 {
-    private ApiConnection _connection;
-
-    public IndexQueryClient(ApiConnection connection)
-    {
-        _connection = connection;
-    }
+    private ApiConnection _connection = connection;
 
     /// <summary>
     /// Search an index.
@@ -41,24 +36,24 @@ public class IndexQueryClient : IDisposable
             request.AddQueryParameter("$top", query.Top.ToString(CultureInfo.InvariantCulture));
         if (query.Count)
             request.AddQueryParameter("$count", query.Count.ToString().ToLower());
-        if (!String.IsNullOrEmpty(query.OrderBy))
+        if (!string.IsNullOrEmpty(query.OrderBy))
             request.AddQueryParameter("$orderby", query.OrderBy);
-        if (!String.IsNullOrEmpty(query.Select))
+        if (!string.IsNullOrEmpty(query.Select))
             request.AddQueryParameter("$select", query.Select);
         if (query.Facets != null && query.Facets.Any())
             request.AddQueryParameter("facet", query.Facets);
-        if (!String.IsNullOrEmpty(query.Filter))
+        if (!string.IsNullOrEmpty(query.Filter))
             request.AddQueryParameter("$filter", query.Filter);
-        if (!String.IsNullOrEmpty(query.Highlight))
+        if (!string.IsNullOrEmpty(query.Highlight))
             request.AddQueryParameter("highlight", query.Highlight);
 
         // Both HighlightPreTag AND HighlightPostTag need to be set together
-        if (!String.IsNullOrEmpty(query.HighlightPreTag) && !String.IsNullOrEmpty(query.HighlightPostTag))
+        if (!string.IsNullOrEmpty(query.HighlightPreTag) && !String.IsNullOrEmpty(query.HighlightPostTag))
         {
             request.AddQueryParameter("highlightPreTag", query.HighlightPreTag);
             request.AddQueryParameter("highlightPostTag", query.HighlightPostTag);
         }
-        if (!String.IsNullOrEmpty(query.ScoringProfile))
+        if (!string.IsNullOrEmpty(query.ScoringProfile))
             request.AddQueryParameter("scoringProfile", query.ScoringProfile);
         if (query.ScoringParameters != null && query.ScoringParameters.Any())
             request.AddQueryParameter("scoringParameter", query.ScoringParameters);

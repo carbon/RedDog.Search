@@ -10,7 +10,7 @@ public interface IApiRequest
 
     HttpMethod Method { get; }
 
-    List<Tuple<string, string>> QueryParameters { get; set; }
+    List<(string, string)> QueryParameters { get; set; }
 
     void AddQueryParameter(string key, string value);
 }

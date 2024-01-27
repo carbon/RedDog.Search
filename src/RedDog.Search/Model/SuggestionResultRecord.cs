@@ -6,20 +6,12 @@ public class SuggestionResultRecord
 {
     public SuggestionResultRecord()
     {
-        Properties = new Dictionary<string, object>();
+        Properties = [];
     }
     
     [JsonPropertyName("@search.text")]
-    public string Text
-    {
-        get;
-        set;
-    }
-    
+    public string Text { get; set; }
+
     [JsonExtensionData]
-    public Dictionary<string, object> Properties
-    {
-        get;
-        set;
-    }
+    public Dictionary<string, object> Properties { get; set; }
 }

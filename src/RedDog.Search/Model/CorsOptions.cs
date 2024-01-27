@@ -1,26 +1,17 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace RedDog.Search.Model
+namespace RedDog.Search.Model;
+
+public class CorsOptions
 {
-    public class CorsOptions
+    public CorsOptions()
     {
-        public CorsOptions()
-        {
-            AllowedOrigins = new[] {"*"};
-        }
-
-        [JsonPropertyName("allowedOrigins")]
-        public string[] AllowedOrigins
-        {
-            get;
-            set;
-        }
-
-        [JsonPropertyName("maxAgeInSeconds")]
-        public long MaxAgeInSeconds
-        {
-            get;
-            set;
-        }
+        AllowedOrigins = ["*"];
     }
+
+    [JsonPropertyName("allowedOrigins")]
+    public string[] AllowedOrigins { get; set; }
+
+    [JsonPropertyName("maxAgeInSeconds")]
+    public long MaxAgeInSeconds { get; set; }
 }

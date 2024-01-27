@@ -5,16 +5,8 @@ namespace RedDog.Search.Model;
 public class SuggestionResult
 {  
     [JsonPropertyName("value")]
-    public IEnumerable<SuggestionResultRecord> Records
-    {
-        get;
-        set;
-    }
+    public IEnumerable<SuggestionResultRecord> Records { get; set; }
 
     [JsonPropertyName("@odata.context")]
-    public string Context
-    {
-        get;
-        set;
-    }        
+    public string Context { get; set; }
 }

@@ -6,27 +6,15 @@ public class Suggester
 {
     public Suggester()
     {
-        SourceFields = new List<string>();
+        SourceFields = [];
     }
 
     [JsonPropertyName("name")]
-    public string Name
-    {
-        get;
-        set;
-    }
+    public string Name { get; set; }
 
     [JsonPropertyName("searchMode")]
-    public SuggesterSearchMode SearchMode
-    {
-        get;
-        set;
-    }
+    public SuggesterSearchMode SearchMode { get; set; }
 
     [JsonPropertyName("sourceFields")]
-    public List<string> SourceFields
-    {
-        get;
-        set;
-    }
+    public List<string> SourceFields { get; set; }
 }

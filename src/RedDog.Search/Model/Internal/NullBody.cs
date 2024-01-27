@@ -1,6 +1,5 @@
-﻿namespace RedDog.Search.Model.Internal
+﻿namespace RedDog.Search.Model.Internal;
+
+internal class NullBody
 {
-    internal class NullBody
-    {
-    }
 }

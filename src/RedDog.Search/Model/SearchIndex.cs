@@ -8,9 +8,9 @@ public class SearchIndex
 {
     public SearchIndex()
     {
-        Fields = new List<IndexField>();
-        ScoringProfiles = new List<ScoringProfile>();
-        Suggesters = new List<Suggester>();
+        Fields = [];
+        ScoringProfiles = [];
+        Suggesters = [];
     }
 
     public SearchIndex(string name)

@@ -12,7 +12,7 @@ public static class SearchQueryExtensions
 
     public static SearchQuery SearchField(this SearchQuery query, string searchField)
     {
-        if (String.IsNullOrEmpty(query.SearchFields))
+        if (string.IsNullOrEmpty(query.SearchFields))
             query.SearchFields = searchField;
         else
             query.SearchFields += "," + searchField;
@@ -21,7 +21,7 @@ public static class SearchQueryExtensions
 
     public static SearchQuery OrderBy(this SearchQuery query, string orderByField)
     {
-        if (String.IsNullOrEmpty(query.OrderBy))
+        if (string.IsNullOrEmpty(query.OrderBy))
             query.OrderBy = orderByField;
         else
             query.OrderBy += "," + orderByField;
@@ -30,16 +30,16 @@ public static class SearchQueryExtensions
 
     public static SearchQuery Select(this SearchQuery query, string selectField)
     {
-        if (String.IsNullOrEmpty(query.Select))
+        if (string.IsNullOrEmpty(query.Select))
             query.Select = selectField;
         else
             query.Select += "," + selectField;
         return query;
     }
 
-    public static SearchQuery Facet(this SearchQuery query, string facetField, string facetParameters = null)
+    public static SearchQuery Facet(this SearchQuery query, string facetField, string? facetParameters = null)
     {
-        var fieldValue = new string[] { string.Format("{0},{1}", facetField, facetParameters).TrimEnd(',') };
+        var fieldValue = new string[] { $"{facetField},{facetParameters}".TrimEnd(',') };
         
         if (query.Facets == null || query.Facets.Any() == false)
             query.Facets = fieldValue;
@@ -78,11 +78,7 @@ public static class SearchQueryExtensions
 
     public static SearchQuery ScoringParameter(this SearchQuery query, string scoringParameter)
     {
-        if (query.ScoringParameters == null)
-        {
-            query.ScoringParameters = Enumerable.Empty<string>();
-        }
-        query.ScoringParameters = query.ScoringParameters.Concat(new[] { scoringParameter });
+        query.ScoringParameters = [.. query.ScoringParameters, scoringParameter];
         return query;
     }
 }

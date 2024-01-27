@@ -6,7 +6,7 @@ public class ScoringProfile
 {
     public ScoringProfile()
     {
-        Functions = new List<ScoringProfileFunction>();
+        Functions = [];
     }
 
     [JsonPropertyName("name")]

@@ -11,7 +11,7 @@ public class Error
     public string Message { get; set; }
 
     [JsonPropertyName("innererror")]
-    public InnerError InnerError { get; set; }
+    public InnerError? InnerError { get; set; }
 
     public Dictionary<string, List<string>> ModelState { get; set; }
 }

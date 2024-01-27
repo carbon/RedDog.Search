@@ -74,7 +74,7 @@ public class ApiConnection : IDisposable
     /// <param name="formatter"></param>
     /// <param name="cancellationToken">cancellation token</param>
     /// <returns></returns>
-    public async Task<IApiResponse<TResponse>> Execute<TResponse>(IApiRequest request, CancellationToken cancellationToken, ResultFormatter<TResponse> formatter = null)
+    public async Task<IApiResponse<TResponse>> Execute<TResponse>(IApiRequest request, CancellationToken cancellationToken, ResultFormatter<TResponse>? formatter = null)
     {
         // Send the request.
         var responseMessage = await _client.SendAsync(BuildRequest(request), cancellationToken)
@@ -92,7 +92,7 @@ public class ApiConnection : IDisposable
     /// <param name="request"></param>
     /// <param name="formatter"></param>
     /// <returns></returns>
-    public async Task<IApiResponse<TResponse>> Execute<TResponse>(IRawApiRequest uriRequest, CancellationToken cancellationToken, ResultFormatter<TResponse> formatter = null)
+    public async Task<IApiResponse<TResponse>> Execute<TResponse>(IRawApiRequest uriRequest, CancellationToken cancellationToken, ResultFormatter<TResponse>? formatter = null)
     {
         // Send the request.
         var responseMessage = await _client.SendAsync(new HttpRequestMessage(uriRequest.Method, uriRequest.Url))
@@ -125,7 +125,7 @@ public class ApiConnection : IDisposable
     /// <param name="cancellationToken"></param>
     /// <param name="formatter"></param>
     /// <returns></returns>
-    private async Task<IApiResponse<TResponse>> BuildResponse<TResponse>(HttpResponseMessage message, CancellationToken cancellationToken, ResultFormatter<TResponse> formatter = null)
+    private async Task<IApiResponse<TResponse>> BuildResponse<TResponse>(HttpResponseMessage message, CancellationToken cancellationToken, ResultFormatter<TResponse>? formatter = null)
     {
         var response = new ApiResponse<TResponse> { 
             StatusCode = message.StatusCode, 

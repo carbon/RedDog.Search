@@ -1,6 +1,5 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Xml.Linq;
 
 namespace RedDog.Search.Serialization;
 
@@ -19,6 +18,5 @@ internal class CamelCaseEnumJsonConverter<T> : JsonConverter<T>
         text = char.ToLowerInvariant(text[0]) + text.Substring(1);
 
         writer.WriteStringValue(text);
-
     }
 }
