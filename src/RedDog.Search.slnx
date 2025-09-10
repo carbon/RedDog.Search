@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="RedDog.Search.Tests/RedDog.Search.Tests.csproj" />
+  <Project Path="RedDog.Search/RedDog.Search.csproj" />
+</Solution>
